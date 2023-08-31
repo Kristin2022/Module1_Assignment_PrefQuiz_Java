@@ -23,7 +23,7 @@ import java.util.Scanner;
 
 public class Main {
     private static final Scanner keyboard = new Scanner(System.in);
-
+//
     //create an additional method
     //array String
     private static int askQuestions() {
