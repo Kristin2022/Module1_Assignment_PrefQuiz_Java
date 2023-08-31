@@ -20,7 +20,6 @@ After the score and message are printed, ask the user if they want to run the pr
  */
 
 import java.util.Scanner;
-
 public class Main {
     private static final Scanner keyboard = new Scanner(System.in);
 //
