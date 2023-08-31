@@ -25,6 +25,7 @@ public class Main {
     private static final Scanner keyboard = new Scanner(System.in);
 
     //create an additional method
+    //array String
     private static int askQuestions() {
         String[] questions = {
                 "Do you prefer mild or spicy?",
@@ -34,21 +35,30 @@ public class Main {
                 "Do you prefer paper or plastic?"
         };
         // get vallidated 0 or 1 response from user input
-        int sum = 0;
-        int number = 0;
-
+        //initialize to 0
+        int sum = 0; //int variable
+        int number = 0; //int variable
+        //for loop that iterates over the elements of the question array
         for (String question : questions) {
             System.out.println(question);
             System.out.println("Enter 0 for the preference on the left of the question.");
             System.out.println("Enter 1 for the preference on the right of the question.");
 
-            if (keyboard.hasNextInt()) {
+            if (!keyboard.hasNextInt()) {
+                System.out.println("Error, Please enter either 0 or 1.");
+                keyboard.next();
+
+            } else {
                 number = keyboard.nextInt();
+                while (number != 0 && number != 1){
+                    System.out.println("Error, please enter the correct input");
+                    number = keyboard.nextInt();
+                }
                 System.out.println("You entered: " + number);
                 sum += number;
-            } else {
-                System.out.println("Invalid input. Please enter either 0 or 1.");
-                keyboard.next(); // discard invalid input
+
+               /* System.out.println("Invalid input. Please enter either 0 or 1.");
+                keyboard.next(); // discard invalid input*/
             }
         }
         return sum;
@@ -62,7 +72,7 @@ public class Main {
             System.out.println("===============================");
             //use variable from method to get result
             int sum = askQuestions();
-
+                
             if (sum < 3) {
                 System.out.println("You prefer life to be calm and organized.");
             } else if (sum == 3) {
